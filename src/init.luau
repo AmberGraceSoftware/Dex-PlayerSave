@@ -35,7 +35,7 @@ local function mapPlayerToSaveObservable(
     requireLoadedStatus: boolean?
 ): Observable<any?>
     local ownerObservable = Dex.CoerceAsObservable(ownerCanBeObservable)
-    return ownerObservable:Map(function(owner: Player?)
+    return Dex.FlattenObservable(ownerObservable:Map(function(owner: Player?)
         if not owner then
             return nil
         end
@@ -75,7 +75,7 @@ local function mapPlayerToSaveObservable(
                 end
             end
         end)
-    end)
+    end))
 end
 
 function DexPlayerSave.ObserveForPlayer<T>(
@@ -83,20 +83,22 @@ function DexPlayerSave.ObserveForPlayer<T>(
     keyPath: string | number | { string | number },
     placeholderValueIfNil: T
 ): T
-    return mapPlayerToSaveObservable(owner):Map(function(save: any?)
-        if not save then
-            return placeholderValueIfNil
-        end
-        return Dex.CustomObservable(function()
-            local value = save:Get(keyPath)
-            if value == nil then
+    return Dex.FlattenObservable(
+        mapPlayerToSaveObservable(owner):Map(function(save: any?)
+            if not save then
                 return placeholderValueIfNil
             end
-            return value
-        end, function(notifyUpdate)
-            return save:Subscribe(keyPath, notifyUpdate, false)
+            return Dex.CustomObservable(function()
+                local value = save:Get(keyPath)
+                if value == nil then
+                    return placeholderValueIfNil
+                end
+                return value
+            end, function(notifyUpdate)
+                return save:Subscribe(keyPath, notifyUpdate, false)
+            end)
         end)
-    end)
+    )
 end
 
 function DexPlayerSave.ObserveLocal<T>(

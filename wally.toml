@@ -6,5 +6,5 @@ realm = "shared"
 
 [dev-dependencies]
 TestEZ = "roblox/testez@0.4.1"
-Dex = "ambergracesoftware/dex@0.1.5"
+Dex = "ambergracesoftware/dex@0.1.7"
 PlayerSave = "ambergracesoftware/playersave@0.0.2"

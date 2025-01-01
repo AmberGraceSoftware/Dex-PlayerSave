@@ -4,13 +4,13 @@ registry = "test"
 
 [[package]]
 name = "ambergracesoftware/dex"
-version = "0.1.5"
+version = "0.1.7"
 dependencies = []
 
 [[package]]
 name = "ambergracesoftware/dex-playersave"
 version = "0.0.1"
-dependencies = [["Dex", "ambergracesoftware/dex@0.1.5"], ["PlayerSave", "ambergracesoftware/playersave@0.0.2"], ["TestEZ", "roblox/testez@0.4.1"]]
+dependencies = [["Dex", "ambergracesoftware/dex@0.1.7"], ["PlayerSave", "ambergracesoftware/playersave@0.0.2"], ["TestEZ", "roblox/testez@0.4.1"]]
 
 [[package]]
 name = "ambergracesoftware/playersave"
