@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[460],{4410:e=>{e.exports=JSON.parse('{"sourceUrl":"https://github.com/AmberGraceSoftware/Dex-PlayerSave/blob/master","baseUrl":"/","classOrder":[{"collapsed":false,"classes":["DexPlayerSave"],"gitSourceBranch":"main"}],"apiCategories":[]}')}}]);
