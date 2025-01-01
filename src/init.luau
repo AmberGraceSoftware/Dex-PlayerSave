@@ -5,6 +5,12 @@ local Dex = FindLatestWallyPackage("ambergracesoftware/dex", "Dex")
 local PlayerSave =
     FindLatestWallyPackage("ambergracesoftware/playersave", "PlayerSave")
 
+--[=[
+    @class DexPlayerSave
+
+    Utility for creating Dex Observers that connect to saves in the PlayerSave
+    library.
+]=]
 local DexPlayerSave = {}
 
 export type Observable<T> = {
@@ -78,6 +84,19 @@ local function mapPlayerToSaveObservable(
     end))
 end
 
+--[=[
+    @function ObserveForPlayer
+    @within DexPlayerSave
+
+    @param owner Player | Observable<Player?>
+    @param keyPath string | number | { string | number }
+    @param placeholderValueIfNil T?
+    @return T
+
+    Observes a value within a given player's save, at the provided keypath.
+    If the value is ever "nil", the placeholder value will be resolved as the
+    current state if provided.
+]=]
 function DexPlayerSave.ObserveForPlayer<T>(
     owner: Player | Observable<Player?>,
     keyPath: string | number | { string | number },
@@ -101,6 +120,17 @@ function DexPlayerSave.ObserveForPlayer<T>(
     )
 end
 
+--[=[
+    @function ObserveLocal
+    @within DexPlayerSave
+    @param keyPath string | number | { string | number }
+    @param placeholderValueIfNil T?
+    @return T
+
+    Observes a value within the local player's save, at the provided keypath.
+    If the value is ever "nil", the placeholder value will be resolved as the
+    current state if provided.
+]=]
 function DexPlayerSave.ObserveLocal<T>(
     keyPath: string | number | { string | number },
     placeholderValueIfNil: T
