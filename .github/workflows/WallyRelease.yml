@@ -17,7 +17,6 @@ jobs:
           cp aftman.toml temp/src
           cp README.md temp/src
           cp LICENSE temp/src
-          cp default.project.json temp/src
       - name: Setup aftman toolchain
         uses: ok-nick/setup-aftman@v0.3.0
       - name: Clean up temp directory
