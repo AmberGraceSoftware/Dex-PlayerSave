@@ -1,0 +1,23 @@
+{
+  "name": "dex-playersave",
+  "tree": {
+    "$className": "DataModel",
+
+    "ReplicatedStorage": {
+      "DevPackages": {
+        "$path": "DevPackages",
+        "DexPlayerSave": {
+          "$path": "src"
+        }
+      },
+      "Tests": {
+        "$path": "tests"
+      }
+    },
+    "ServerScriptService":{
+      "TestRunner": {
+        "$path": "workflowtools/TestRunner.server.luau"
+      }
+    }
+  }
+}

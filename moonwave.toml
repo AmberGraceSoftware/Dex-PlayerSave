@@ -1,0 +1,27 @@
+order = ["Introduction"]
+
+
+[[classOrder]]
+collapsed = false
+classes = ["DexPlayerSave"]
+
+gitSourceBranch = "main"
+
+[docusaurus]
+url = "https://dex-playersave.ambergracesoftware.com"
+baseUrl = "/"
+tagline = "Dex Observers for the PlayerSave library"
+
+[navbar]
+title = ""
+
+[navbar.logo]
+alt = "DexPlayerSave"
+src = "logo.svg"
+
+[home]
+enabled = true
+includeReadme = false
+
+[footer]
+copyright = "Written by Amber Grace. Built with Moonwave and Docusaurus"

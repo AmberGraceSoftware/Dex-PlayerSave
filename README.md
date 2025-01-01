@@ -1,2 +1,2 @@
 # Dex-PlayerSave
-PlayerSave state observers for Dex
+Dex Observers for the PlayerSave library
